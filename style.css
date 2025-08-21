@@ -1,0 +1,163 @@
+/* Importação da Fonte */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* --- Variáveis Globais de Cores e Estilos --- */
+:root {
+    --bg-color: #12101e;
+    --card-bg-color: rgba(255, 255, 255, 0.08);
+    --border-color: rgba(255, 255, 255, 0.2);
+    --primary-text-color: #f0f0f0;
+    --secondary-text-color: #a0a0b0;
+    --accent-color-1: #8a2be2;
+    --accent-color-2: #4169e1;
+    --star-color: #ffc700;
+    --success-color: #20e0a0;
+    --error-color: #ff4d4d;
+    --warning-color: #ffc700;
+    --border-radius-lg: 16px;
+    --border-radius-sm: 8px;
+}
+
+/* --- Reset e Configurações Globais --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    line-height: 1.6;
+    overflow-x: hidden; /* Previne scroll horizontal dos blobs */
+}
+
+/* --- Fundo Decorativo --- */
+.background-blob {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(150px);
+    opacity: 0.4;
+    z-index: -1;
+}
+.blob1 {
+    width: 500px;
+    height: 500px;
+    top: -200px;
+    left: -200px;
+    background: linear-gradient(135deg, var(--accent-color-1), var(--accent-color-2));
+}
+.blob2 {
+    width: 400px;
+    height: 400px;
+    bottom: -150px;
+    right: -150px;
+    background: linear-gradient(135deg, var(--accent-color-2), var(--accent-color-1));
+}
+
+/* --- Layout Principal --- */
+.container {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 2rem;
+}
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+header p {
+    font-size: 1.1rem;
+    color: var(--secondary-text-color);
+}
+main {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+}
+
+/* --- Estilo "Glassmorphism" para Cards --- */
+.card {
+    background: var(--card-bg-color);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* --- Formulário Modernizado --- */
+.form-group { margin-bottom: 1.5rem; }
+label { display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--secondary-text-color); }
+input[type="text"], textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid transparent;
+    border-radius: var(--border-radius-sm);
+    color: var(--primary-text-color);
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+}
+input[type="text"]:focus, textarea:focus {
+    outline: none;
+    border-color: var(--border-color);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.star {
+    font-size: 2.5rem; color: #444; cursor: pointer;
+    transition: transform 0.1s ease-in-out, color 0.2s ease;
+}
+.star:hover { transform: scale(1.2); }
+.star.selected, .star.hover-effect { color: var(--star-color); text-shadow: 0 0 15px var(--star-color); }
+
+button {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    background: linear-gradient(90deg, var(--accent-color-1), var(--accent-color-2));
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Lista de Feedbacks e Gráfico --- */
+.chart-container { height: 300px; }
+.feedback-item {
+    background-color: rgba(0, 0, 0, 0.15);
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: var(--border-radius-sm);
+    border-left: 4px solid;
+    transition: background-color 0.3s ease;
+}
+.feedback-item:hover { background-color: rgba(0, 0, 0, 0.25); }
+.feedback-item h3 { display: flex; justify-content: space-between; align-items: center; }
+.feedback-item .rating { font-size: 1rem; padding: 0.2rem 0.6rem; border-radius: 50px; font-weight: 600; }
+.feedback-item p { margin-top: 0.5rem; color: var(--secondary-text-color); }
+.no-feedback { color: var(--secondary-text-color); text-align: center; padding: 1rem; }
+footer { text-align: center; margin-top: 2rem; color: var(--secondary-text-color); }
+.success-message.show { color: var(--success-color); }
+
+/* --- Responsividade --- */
+@media (max-width: 992px) {
+    main { grid-template-columns: 1fr; }
+    header h1 { font-size: 2.5rem; }
+}

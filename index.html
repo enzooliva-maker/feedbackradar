@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Feedback Moderna</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="background-blob blob1"></div>
+    <div class="background-blob blob2"></div>
+
+    <div class="container">
+        <header>
+            <h1>Plataforma de Feedback</h1>
+            <p>Sua opinião constrói nosso futuro. Deixe sua marca!</p>
+        </header>
+
+        <main>
+            <section class="form-section card">
+                <h2>Enviar Novo Feedback</h2>
+                <form id="feedbackForm">
+                    <div class="form-group">
+                        <label for="userName">Seu Nome:</label>
+                        <input type="text" id="userName" placeholder="Ex: Alex Doe" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Sua Nota:</label>
+                        <div class="star-rating" id="starRatingContainer">
+                            <span class="star" data-value="1">☆</span>
+                            <span class="star" data-value="2">☆</span>
+                            <span class="star" data-value="3">☆</span>
+                            <span class="star" data-value="4">☆</span>
+                            <span class="star" data-value="5">☆</span>
+                        </div>
+                        <input type="hidden" id="userRating" name="userRating" value="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userComment">Comentário (opcional):</label>
+                        <textarea id="userComment" rows="4" placeholder="O que você achou?"></textarea>
+                    </div>
+                    <button type="submit">Enviar Feedback</button>
+                    <p id="successMessage" class="success-message"></p>
+                </form>
+            </section>
+
+            <section class="dashboard-section card">
+                <h2>Análise de Notas</h2>
+                <div class="chart-container">
+                    <canvas id="feedbackChart"></canvas>
+                </div>
+            </section>
+
+            <section class="feedback-list-section card">
+                <h2>Feedbacks Recebidos</h2>
+                <div id="feedbackList">
+                    <p class="no-feedback">Ainda não há feedbacks. Seja o primeiro a avaliar!</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Enzo Oliva.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
